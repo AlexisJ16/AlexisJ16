@@ -1,0 +1,66 @@
+{
+  "titular_profesional": "IA generativa y agéntica · Automatización de procesos",
+  "perfil": "Construyo sistemas de IA generativa y agéntica, y los integro a flujos de negocio reales. Mi trabajo más sólido hasta ahora fue dirigir el desarrollo técnico de una plataforma legal-tech para una firma de abogados: un asistente con RAG (Gemini 2.5 Flash + pgvector) y un servicio de automatización con n8n sobre un backend de microservicios. En paralelo curso la Maestría en IA Aplicada en la Universidad Icesi, donde trabajo con machine learning y pipelines de datos; mi grado de Ingeniería Telemática está en trámite. Me interesa aplicar IA a la mejora de procesos.",
+  "experiencia": [
+    {
+      "rol": "Líder Tecnológico y Desarrollador Principal",
+      "organizacion": "Carrillo Abogados (cliente)",
+      "contexto": "Plataforma legal-tech para la firma (sitio público, portal autenticado y API). Administrador de la organización en GitHub y principal autor del código.",
+      "fechas": "Nov 2025 – May 2026",
+      "bullets": [
+        "Implementé el asistente de IA «Moni»: un RAG con Google Gemini 2.5 Flash que busca en PostgreSQL con pgvector (HNSW, similitud coseno), dentro del flujo de captación y enrutamiento de leads.",
+        "Construí el n8n-integration-service, que conecta la plataforma con n8n por webhooks y eventos de negocio; 39 pruebas.",
+        "Diseñé el backend: 7 microservicios (6 en Spring Boot/Java 21 y 1 en FastAPI/Python 3.12) tras un API gateway con OAuth2/JWT y migraciones Flyway; cerca de 228 pruebas (JUnit 5, Testcontainers, pytest).",
+        "Frontend en Next.js 16 con TypeScript strict y shadcn/ui; 270 pruebas unitarias (Vitest) y 75 E2E (Playwright). Datos en PostgreSQL 16 (Neon).",
+        "Levanté la infraestructura en GCP Cloud Run con Terraform (state en GCS, Secret Manager, IAM) y el frontend en Vercel; CI/CD en GitHub Actions con despliegue controlado y observabilidad con el stack LGTM."
+      ]
+    }
+  ],
+  "proyectos": [
+    {
+      "nombre": "harness + orus — infraestructura para agentes de IA",
+      "contexto": "Proyecto personal y Proyecto I de la Maestría en IA Aplicada (sustentado en junio de 2026). Python 3.12, LiteLLM, Pydantic v2, Langfuse, MLflow · 546 pruebas, cobertura > 95 %.",
+      "fechas": "2026 – presente",
+      "bullets": [
+        "harness: kit de primitivas para construir agentes, con Clean Architecture en 4 capas (dependencias verificadas por AST), patrón de tres agentes (orquestador → generador → evaluador) y failover entre 7 proveedores de LLM, uno distinto por rol.",
+        "orus: agente asistente de desarrollo sobre el harness, con loop ReAct propio (sin LangChain ni LangGraph, por decisión de arquitectura) y memoria persistente entre sesiones (recall exacto y semántico con BGE-m3); 7 herramientas y confirmación humana antes de escribir.",
+        "La evaluación corre offline y es reproducible: re-evaluar el mismo dataset da resultados idénticos. Sigue CRISP-ML(Q) sobre un dataset propio de revisión de código en Python (51 archivos), con observabilidad en Langfuse v3 autoalojado y MLflow."
+      ]
+    },
+    {
+      "nombre": "claude-code-ops — automatización con LLMs",
+      "contexto": "Ecosistema personal de herramientas para agentes de IA sobre Claude Code.",
+      "fechas": "2026 – presente",
+      "bullets": [
+        "3 hooks en Python (15 pruebas), integración de 5 servidores MCP y un sistema de memoria que clasifica la vigencia de cada nota para mantener el contexto útil entre sesiones."
+      ]
+    }
+  ],
+  "educacion": [
+    {
+      "programa": "Maestría en Inteligencia Artificial Aplicada",
+      "institucion": "Universidad Icesi",
+      "fechas": "Ago 2025 – presente (en curso)",
+      "detalle": "Aprendizaje automático (regresión, clasificación, series de tiempo), análisis y extracción de datos (SQL, ETL/ELT) y CRISP-ML(Q). Proyecto I (harness/orus) sustentado en junio de 2026."
+    },
+    {
+      "programa": "Ingeniería Telemática",
+      "institucion": "Universidad Icesi",
+      "fechas": "2022 – 2026 (grado en trámite)",
+      "detalle": "Promedio 4.5/5.0 · Listado de Honor."
+    }
+  ],
+  "habilidades": [
+    { "grupo": "IA y Machine Learning", "items": ["LLMs", "RAG", "Agentes (ReAct)", "Evaluación de modelos", "scikit-learn", "Series de tiempo", "Embeddings (BGE-m3)", "CRISP-ML(Q)", "MLflow"] },
+    { "grupo": "Automatización y procesos", "items": ["n8n", "Pipelines ETL/ELT", "Scrum", "ITIL v4"] },
+    { "grupo": "Desarrollo y datos", "items": ["Python", "Java / Spring Boot", "TypeScript", "React / Next.js", "APIs REST", "PostgreSQL", "SQL", "pgvector"] },
+    { "grupo": "Cloud y DevOps", "items": ["GCP (Cloud Run)", "Terraform (IaC)", "Docker", "CI/CD (GitHub Actions)", "Linux", "Observabilidad (Grafana/Prometheus)"] }
+  ],
+  "certificaciones": [
+    "Fundamentos de Nube — AWS, GCP y Azure (Cloud Fundamentals) · Universidad Icesi · 2025-1",
+    "Scrum Foundation Professional Certificate (SFPC) · Universidad Icesi · 2025-2",
+    "ITIL v4 Foundation · Universidad Icesi · 2025-2"
+  ],
+  "idiomas": "Español (nativo) · Inglés (B1)",
+  "otros": "Monitor Académico CAMBAS — Universidad Icesi (jul 2023 – nov 2025): tutorías de matemáticas, cálculo y estadística."
+}

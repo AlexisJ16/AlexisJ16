@@ -1,0 +1,13 @@
+# === Internos — material de trabajo, NO publicar ===
+/contenido/
+/ESTADO.md
+/linkedin/
+/github-profile/
+/DOMINIO-RUNBOOK.md
+/Alexis Jaramillo - HV Oficial.pdf
+
+# === Vercel / temporales / artefactos de sesión ===
+.vercel/
+*.log
+.playwright-mcp/
+_review/
