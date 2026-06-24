@@ -1,6 +1,6 @@
 {
-  "titular_profesional": "IA generativa y agéntica · Automatización de procesos",
-  "perfil": "Construyo sistemas de IA generativa y agéntica, y los integro a flujos de negocio reales. Mi trabajo más sólido hasta ahora fue dirigir el desarrollo técnico de una plataforma legal-tech para una firma de abogados: un asistente con RAG (Gemini 2.5 Flash + pgvector) y un servicio de automatización con n8n sobre un backend de microservicios. En paralelo curso la Maestría en IA Aplicada en la Universidad Icesi, donde trabajo con machine learning y pipelines de datos; mi grado de Ingeniería Telemática está en trámite. Me interesa aplicar IA a la mejora de procesos.",
+  "titular_profesional": "Ingeniero Telemático (en proceso de grado) · IA generativa y agéntica · Automatización de procesos",
+  "perfil": "Ingeniero telemático (telecomunicaciones e informática): conecto tecnologías de distinta naturaleza en sistemas que funcionan de extremo a extremo y resuelven un problema de negocio. Mi foco actual es la IA generativa y agéntica y la automatización de procesos: construyo asistentes con RAG, agentes y flujos con n8n, tratados con la misma disciplina de ingeniería que cualquier otro componente (evaluación reproducible, observabilidad y decisiones documentadas). Lo he comprobado dirigiendo el desarrollo técnico de una plataforma legal-tech en producción (asistente «Moni» con RAG sobre PostgreSQL + pgvector, 7 microservicios, GCP) y construyendo harness/orus, mi banco offline reproducible para agentes. Curso la Maestría en IA Aplicada (Icesi); mi grado de Ingeniería Telemática está en trámite.",
   "experiencia": [
     {
       "rol": "Líder Tecnológico y Desarrollador Principal",
