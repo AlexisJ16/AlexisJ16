@@ -5,8 +5,8 @@
       --t-0:#F4F6FB;--t-1:#9AA4B6;--t-2:#7B8499;--t-3:#727C90;
       --ice:#5E9DFF;--ice-2:#86B6FF;--gold:#CFAC6B;
       --line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.13);
-      --sans:"Geist",ui-sans-serif,system-ui,-apple-system,sans-serif;
-      --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+      --sans:var(--font-geist-sans),ui-sans-serif,system-ui,sans-serif;
+      --mono:var(--font-geist-mono),ui-monospace,SFMono-Regular,Menlo,monospace;
       --nav-h:72px;--maxw:1200px;--ease:cubic-bezier(.22,.61,.36,1);
     }
 @theme inline {
