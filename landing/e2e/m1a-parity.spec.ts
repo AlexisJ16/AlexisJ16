@@ -1,5 +1,6 @@
 // landing/e2e/m1a-parity.spec.ts
 import { test, expect } from "@playwright/test";
+import { NAV_H } from "../lib/motion/constants";
 
 test("JS-off: todo el contenido es visible y los números reales están presentes", async ({ browser }) => {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
@@ -24,7 +25,7 @@ test("skip-link y ancla mueven el scroll con offset de la nav", async ({ page })
   await page.goto("/#trabajo");
   await page.waitForTimeout(900); // dar tiempo a Lenis
   const top = await page.locator("#trabajo").evaluate((e) => e.getBoundingClientRect().top);
-  expect(top).toBeGreaterThanOrEqual(0); // no queda tapado por la nav fija
+  expect(top).toBeGreaterThanOrEqual(NAV_H - 2); // el ancla queda en/bajo la nav fija (offset de Lenis aplicado), no tapada
 });
 
 test("reduced-motion: sin SMIL corriendo y reveals visibles", async ({ browser }) => {
