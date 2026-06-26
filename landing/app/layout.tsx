@@ -47,10 +47,11 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${GeistSans.variable} ${GeistMono.variable} dark`}>
+    <html lang="es" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable} dark`}>
       <head>
         <meta name="color-scheme" content="dark" />
         <meta name="theme-color" content="#08090D" />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>{children}</body>
