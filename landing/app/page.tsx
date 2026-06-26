@@ -1,10 +1,14 @@
 import { Nav } from "@/components/Nav";
+import { Hero } from "@/components/Hero";
 
 export default function Home() {
   return (
     <>
       <Nav />
-      <main id="contenido">{/* secciones */}</main>
+      <main id="contenido">
+        <Hero />
+        {/* secciones */}
+      </main>
     </>
   );
 }
