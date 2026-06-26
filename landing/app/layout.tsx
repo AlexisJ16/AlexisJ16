@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alexis Jaramillo — Ingeniero telemático",
     description: "Ingeniero telemático en proceso de grado. Conecto tecnologías de distinta naturaleza en un solo sistema que funciona.",
-    images: ["/assets/og-image.png"],
+    images: [{ url: "/assets/og-image.png", alt: "Alexis Jaramillo — Ingeniero telemático" }],
   },
   icons: { icon: "/assets/icon.png", apple: "/assets/icon.png" },
 };
