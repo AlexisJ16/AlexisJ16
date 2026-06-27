@@ -1,6 +1,12 @@
+"use client";
+import { useRef } from "react";
+import { useCountUp } from "@/lib/motion/useCountUp";
+
 export function Casos() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useCountUp(containerRef);
   return (
-    <div className="cards">
+    <div className="cards" ref={containerRef}>
       {/* harness + orus — proyecto destacado */}
       <article className="pc pc--feature" data-reveal>
         <div className="pc__main">
@@ -48,19 +54,19 @@ export function Casos() {
           </ul>
           <div className="metrics">
             <div className="metric">
-              <b>546</b>
+              <b data-count>546</b>
               <span>pruebas reproducibles</span>
             </div>
             <div className="metric">
-              <b>&gt;95%</b>
+              <b data-count>≥95%</b>
               <span>cobertura de código</span>
             </div>
             <div className="metric">
-              <b>7</b>
+              <b data-count>7</b>
               <span>proveedores de LLM en failover</span>
             </div>
             <div className="metric">
-              <b>10</b>
+              <b data-count>10</b>
               <span>ADRs documentados</span>
             </div>
           </div>
