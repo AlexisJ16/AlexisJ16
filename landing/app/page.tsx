@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { StatsBand } from "@/components/StatsBand";
 import { DoblePrueba } from "@/components/DoblePrueba";
 import { Casos } from "@/components/Casos";
 import { SobreMi } from "@/components/SobreMi";
@@ -18,6 +19,7 @@ export default function Home() {
       <Nav />
       <main id="contenido">
         <Hero />
+        <StatsBand />
         <section id="trabajo" className="section" aria-labelledby="trabajo-title">
           <div className="wrap">
             <DoblePrueba />

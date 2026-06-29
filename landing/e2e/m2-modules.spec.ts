@@ -37,3 +37,31 @@ test("FAQ: acordeón exclusivo (name) — abrir uno cierra el otro", async ({ pa
   await expect(items.nth(1)).toHaveAttribute("open", "");
   await expect(items.nth(0)).not.toHaveAttribute("open", ""); // el name="faq" cerró el primero
 });
+
+test("Stats: números reales en el DOM sin JS", async ({ browser }) => {
+  const ctx = await browser.newContext({ javaScriptEnabled: false });
+  const page = await ctx.newPage();
+  await page.goto("/");
+  await expect(page.locator("#stats")).toBeVisible();
+  // presencia en el DOM (§0), robusto al CSS
+  const txt = await page.locator("#stats").textContent();
+  expect(txt).toContain("546");
+  await ctx.close();
+});
+
+test("Stats: con JS el count-up llega al valor real", async ({ page }) => {
+  await page.goto("/");
+  // Esperar hidratación React antes de interactuar con el DOM: sin esto, scrollIntoViewIfNeeded
+  // actúa mientras React rehidrata y el nodo se detacha ("not attached to the DOM"). Mismo patrón
+  // que el test count-up de m1a-parity.spec.ts.
+  await page.waitForLoadState("networkidle");
+  await page.locator("#stats").scrollIntoViewIfNeeded();
+  await expect(page.locator('#stats [data-count]').first()).toHaveText(/546/, { timeout: 4000 });
+});
+
+test("Stats: el 7 de Carrillo NO anima (anti-7=7: cluster narrativo sin data-count)", async ({ page }) => {
+  await page.goto("/");
+  // el cluster narrativo (Carrillo) no tiene [data-count]; su "7 microservicios" es estático
+  const narrativeCounts = await page.locator('#stats .sb__cluster--narrative [data-count]').count();
+  expect(narrativeCounts).toBe(0);
+});

@@ -238,3 +238,18 @@
     .faqitem::details-content{block-size:0;overflow:clip;opacity:0;transition:block-size .35s var(--ease),opacity .3s var(--ease),content-visibility .35s allow-discrete}
     .faqitem[open]::details-content{block-size:auto;opacity:1}
     @media (prefers-reduced-motion:reduce){.faqitem::details-content{transition:none}}
+
+    /* ===== STATS BAND ===== */
+    .statsband{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+    .sb{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,5vw,72px);padding-block:clamp(28px,4vw,46px);align-items:center}
+    .sb__src{font-size:.74rem;color:var(--t-2);margin-bottom:16px;letter-spacing:.02em}
+    .sb__nums{display:flex;flex-wrap:wrap;gap:14px 32px;margin:0}
+    .sb__nums>div{display:flex;flex-direction:column;gap:3px}
+    .sb__nums dt{margin:0}
+    .sb__nums b{font-family:var(--mono);font-size:clamp(1.5rem,2.6vw,2.1rem);color:var(--ice);font-weight:500;font-variant-numeric:tabular-nums;line-height:1}
+    .sb__nums dd{margin:0;font-family:var(--mono);font-size:.74rem;color:var(--t-2)}
+    .sb__cluster--narrative{border-left:1px solid var(--line);padding-left:clamp(24px,4vw,56px)}
+    .sb__tags{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+    .sb__tags li{font-size:.95rem;color:var(--t-1)}
+    .sb__tags b{color:var(--t-0);font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+    @media (max-width:760px){.sb{grid-template-columns:1fr;gap:26px}.sb__cluster--narrative{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:26px}}
