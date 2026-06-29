@@ -4,6 +4,7 @@ import { DoblePrueba } from "@/components/DoblePrueba";
 import { Casos } from "@/components/Casos";
 import { SobreMi } from "@/components/SobreMi";
 import { Capacidades } from "@/components/Capacidades";
+import { FAQ } from "@/components/FAQ";
 import { Contacto } from "@/components/Contacto";
 import { Footer } from "@/components/Footer";
 import { RevealProvider } from "@/components/RevealProvider";
@@ -25,6 +26,7 @@ export default function Home() {
         </section>
         <SobreMi />
         <Capacidades />
+        <FAQ />
         <Contacto />
       </main>
       <Footer />
