@@ -10,6 +10,7 @@ import { Contacto } from "@/components/Contacto";
 import { Footer } from "@/components/Footer";
 import { RevealProvider } from "@/components/RevealProvider";
 import { HeroParallaxProvider } from "@/components/HeroParallaxProvider";
+import { Proceso } from "@/components/Proceso";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
             <Casos />
           </div>
         </section>
+        <Proceso />
         <SobreMi />
         <Capacidades />
         <FAQ />

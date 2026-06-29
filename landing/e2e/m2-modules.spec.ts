@@ -65,3 +65,28 @@ test("Stats: el 7 de Carrillo NO anima (anti-7=7: cluster narrativo sin data-cou
   const narrativeCounts = await page.locator('#stats .sb__cluster--narrative [data-count]').count();
   expect(narrativeCounts).toBe(0);
 });
+
+test("Proceso: los 5 pasos legibles sin JS", async ({ browser }) => {
+  const ctx = await browser.newContext({ javaScriptEnabled: false });
+  const page = await ctx.newPage();
+  await page.goto("/");
+  await expect(page.locator("#proceso")).toBeVisible();
+  await expect(page.locator("#proceso [data-step]")).toHaveCount(5);
+  // sin JS, ningún paso queda atenuado (la regla opacity:.5 va gated por html.js)
+  const dim = await page.locator("#proceso [data-step]").evaluateAll(
+    (els) => els.filter((e) => parseFloat(getComputedStyle(e).opacity) < 1).length
+  );
+  expect(dim).toBe(0);
+  await ctx.close();
+});
+
+test("Proceso: reduced-motion -> lista estática, todos los pasos a opacity 1", async ({ browser }) => {
+  const ctx = await browser.newContext({ reducedMotion: "reduce" });
+  const page = await ctx.newPage();
+  await page.goto("/#proceso");
+  const dim = await page.locator("#proceso [data-step]").evaluateAll(
+    (els) => els.filter((e) => parseFloat(getComputedStyle(e).opacity) < 1).length
+  );
+  expect(dim).toBe(0);
+  await ctx.close();
+});

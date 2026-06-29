@@ -253,3 +253,19 @@
     .sb__tags li{font-size:.95rem;color:var(--t-1)}
     .sb__tags b{color:var(--t-0);font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
     @media (max-width:760px){.sb{grid-template-columns:1fr;gap:26px}.sb__cluster--narrative{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:26px}}
+
+    /* ===== PROCESO ===== */
+    .process{position:relative;display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px)}
+    .process__rail{position:sticky;top:calc(var(--nav-h) + 80px);align-self:start;width:2px;height:60vh;background:var(--line-2);border-radius:2px;overflow:hidden}
+    .process__rail-fill{position:absolute;inset:0;width:100%;background:var(--ice);transform:scaleY(0);transform-origin:top}
+    .process__steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:clamp(28px,5vh,64px)}
+    .pstep{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+    .pstep__no{font-size:.8rem;color:var(--ice);padding-top:4px;font-variant-numeric:tabular-nums}
+    .pstep__title{font-size:1.16rem;letter-spacing:-.015em;margin-bottom:8px}
+    .pstep__src{font-size:.74rem;color:var(--t-2);font-weight:400}
+    .pstep__desc{color:var(--t-1);font-size:.96rem;line-height:1.6;max-width:60ch}
+    /* base = visible (JS-off legible). Con JS se atenúa para iluminar por scroll; reduced-motion lo vuelve a fijar. */
+    html.js [data-step]{opacity:.5;transition:opacity .4s var(--ease)}
+    html.js [data-step].is-active{opacity:1}
+    @media (prefers-reduced-motion:reduce){html.js [data-step]{opacity:1}}
+    @media (max-width:680px){.process{grid-template-columns:1fr}.process__rail{display:none}}
