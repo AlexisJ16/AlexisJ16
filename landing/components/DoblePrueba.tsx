@@ -1,6 +1,13 @@
+"use client";
+import { useRef } from "react";
+import { useDrawOn } from "@/lib/motion/useDrawOn";
+
 export function DoblePrueba() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  useDrawOn(containerRef);
+
   return (
-    <>
+    <div ref={containerRef}>
       <div className="s-head" data-reveal>
         <p className="eyebrow"><span className="n">01</span> La doble prueba</p>
         <h2 className="s-title" id="trabajo-title">Mismo oficio, dos formas.</h2>
@@ -24,7 +31,7 @@ export function DoblePrueba() {
               </defs>
               <rect className="a-node" x="40" y="40" width="48" height="24" rx="4"/>
               <text className="a-label" x="64" y="33" textAnchor="middle">cliente</text>
-              <path className="a-edge a-edge--anim" d="M64 64 L64 105 L106 105" fill="none" markerEnd="url(#ahC)"/>
+              <path className="a-edge a-edge--anim" data-draw d="M64 64 L64 105 L106 105" fill="none" markerEnd="url(#ahC)"/>
               <rect className="a-node" x="110" y="92" width="160" height="26" rx="5"/>
               <text className="a-label" x="190" y="109" textAnchor="middle">API gateway · OAuth2</text>
               <line className="a-edge" x1="190" y1="118" x2="190" y2="138"/>
@@ -45,7 +52,7 @@ export function DoblePrueba() {
               <rect className="a-svc" x="320" y="150" width="34" height="30" rx="4" style={{ fill: "rgba(94,157,255,.1)" }}/>
               <text className="a-sub" x="337" y="145" textAnchor="middle" style={{ fill: "var(--ice)" }}>Moni · RAG</text>
               <text className="a-sub" x="170" y="197" textAnchor="middle">7 servicios · Java 21 + Python</text>
-              <line className="a-edge a-edge--anim" x1="190" y1="180" x2="190" y2="222" markerEnd="url(#ahC)"/>
+              <line className="a-edge a-edge--anim" data-draw x1="190" y1="180" x2="190" y2="222" markerEnd="url(#ahC)"/>
               <rect className="a-node" x="70" y="222" width="240" height="28" rx="5"/>
               <text className="a-label" x="190" y="240" textAnchor="middle">PostgreSQL + pgvector</text>
               <path className="a-edge--fb" d="M337 180 L337 236 L312 236" fill="none" markerEnd="url(#ahC)"/>
@@ -69,10 +76,10 @@ export function DoblePrueba() {
                 <marker id="ahH" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M0 1 L9 5 L0 9 Z" fill="#5E9DFF"/>
                 </marker>
-                <path id="flowH" d="M190 56 L70 150 L310 150 Z"/>
+                <path id="flowH" data-draw d="M190 56 L70 150 L310 150 Z"/>
               </defs>
-              <line className="a-edge a-edge--anim" x1="182" y1="66" x2="80" y2="142" markerEnd="url(#ahH)"/>
-              <line className="a-edge a-edge--anim" x1="88" y1="150" x2="292" y2="150" markerEnd="url(#ahH)"/>
+              <line className="a-edge a-edge--anim" data-draw x1="182" y1="66" x2="80" y2="142" markerEnd="url(#ahH)"/>
+              <line className="a-edge a-edge--anim" data-draw x1="88" y1="150" x2="292" y2="150" markerEnd="url(#ahH)"/>
               <line className="a-edge--fb" x1="300" y1="142" x2="198" y2="66" markerEnd="url(#ahH)"/>
               <circle className="a-ring" cx="190" cy="56" r="13"/>
               <circle className="a-node" cx="190" cy="56" r="7"/>
@@ -116,6 +123,6 @@ export function DoblePrueba() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
