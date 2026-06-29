@@ -15,20 +15,20 @@ export function Hero() {
       <div className="wrap">
         <div className="hero">
           <div className="hero__copy">
-            <span className="ann">
+            <span className="ann" data-reveal="tf">
               <span className="led" aria-hidden="true"></span>
               Ingeniero telemático · en proceso de grado · Cali, Colombia
             </span>
-            <h1 className="lede" id="hero-title">
+            <h1 className="lede" id="hero-title" data-reveal="tf">
               Conecto tecnologías de distinta naturaleza en un solo sistema que{" "}
               <span className="proof">funciona</span>.
             </h1>
-            <p className="sub">
+            <p className="sub" data-reveal="tf">
               Telecomunicaciones más informática. Integro servicios, datos y
               modelos en sistemas que operan de extremo a extremo y resuelven un
               problema de negocio.
             </p>
-            <div className="cta">
+            <div className="cta" data-reveal="tf">
               <a className="btn btn--primary" href="#contacto">
                 Cuéntame qué quieres construir{" "}
                 <span className="arr" aria-hidden="true">
@@ -42,7 +42,7 @@ export function Hero() {
                 Descargar CV
               </a>
             </div>
-            <div className="factrow">
+            <div className="factrow" data-reveal="tf">
               <span className="f">
                 <span className="d" aria-hidden="true"></span>
                 <b>7</b> microservicios en producción
@@ -220,7 +220,7 @@ export function Hero() {
           </figure>
         </div>
 
-        <div className="trust">
+        <div className="trust" data-reveal="tf">
           <div className="trust__in">
             <span className="lbl">Trabajo con</span>
             <span className="it">
