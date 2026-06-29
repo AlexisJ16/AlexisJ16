@@ -32,7 +32,14 @@ test("reduced-motion: sin SMIL corriendo y reveals visibles", async ({ browser }
   const ctx = await browser.newContext({ reducedMotion: "reduce" });
   const page = await ctx.newPage();
   await page.goto("/");
-  await page.waitForTimeout(300);
+  // RevealProvider elimina los <animateMotion> en un efecto; esperar a que termine.
+  // Espera robusta (no timeout fijo): si RevealProvider no corriera, esto haría timeout
+  // y el gate fallaría correctamente — atrapa la regresión real sin ser flaky por timing.
+  await page.waitForFunction(
+    () => document.querySelectorAll("animateMotion").length === 0,
+    null,
+    { timeout: 5000 }
+  );
   const smil = await page.locator("animateMotion").count();
   expect(smil).toBe(0); // RevealProvider los elimina bajo reduced-motion
   const hidden = await page.locator('[data-reveal]').evaluateAll(
