@@ -2,7 +2,7 @@ export function Contacto() {
   return (
     <section id="contacto" className="section contact" aria-labelledby="contact-title">
       <div className="wrap">
-        <p className="eyebrow" data-reveal><span className="n">04</span> Contacto</p>
+        <p className="eyebrow" data-reveal><span className="n">06</span> Contacto</p>
         <h2 className="contact__title" id="contact-title" data-reveal>Cuéntame qué quieres construir.</h2>
         <p className="contact__lead" data-reveal>¿Tienes sistemas que no se hablan entre sí, o un proceso que pide una mano de ingeniería? Escríbeme y lo miramos. Respondo personalmente.</p>
         <a className="contact__email" href="mailto:alexisj4a@gmail.com" data-reveal>alexisj4a@gmail.com</a>

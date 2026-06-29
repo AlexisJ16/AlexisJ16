@@ -5,12 +5,14 @@ import { useScrollSpy } from "@/lib/hooks/useScrollSpy";
 
 const NAV_LINKS = [
   { href: "#trabajo", id: "trabajo", label: "Trabajo" },
-  { href: "#sobre-mi", id: "sobre-mi", label: "Sobre mí" },
+  { href: "#proceso", id: "proceso", label: "Proceso" },
   { href: "#capacidades", id: "capacidades", label: "Capacidades" },
+  { href: "#sobre-mi", id: "sobre-mi", label: "Sobre mí" },
+  { href: "#faq", id: "faq", label: "FAQ" },
   { href: "#contacto", id: "contacto", label: "Contacto" },
 ];
 
-const SPY_IDS = ["inicio", "trabajo", "sobre-mi", "capacidades", "contacto"];
+const SPY_IDS = ["inicio", "trabajo", "proceso", "capacidades", "sobre-mi", "faq", "contacto"];
 
 export function Nav() {
   const scrolled = useNavScrolled();

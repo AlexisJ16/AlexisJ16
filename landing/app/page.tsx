@@ -28,8 +28,8 @@ export default function Home() {
           </div>
         </section>
         <Proceso />
-        <SobreMi />
         <Capacidades />
+        <SobreMi />
         <FAQ />
         <Contacto />
       </main>

@@ -90,3 +90,19 @@ test("Proceso: reduced-motion -> lista estática, todos los pasos a opacity 1", 
   expect(dim).toBe(0);
   await ctx.close();
 });
+
+test("orden de página = spec §9", async ({ page }) => {
+  await page.goto("/");
+  const ids = await page.locator("main > section, main > div[id]").evaluateAll(
+    (els) => els.map((e) => e.id).filter(Boolean)
+  );
+  expect(ids).toEqual(["inicio", "stats", "trabajo", "proceso", "capacidades", "sobre-mi", "faq", "contacto"]);
+});
+
+test("nav: enlaces Proceso y FAQ presentes y apuntan a anclas existentes", async ({ page }) => {
+  await page.goto("/");
+  for (const href of ["#trabajo", "#proceso", "#capacidades", "#sobre-mi", "#faq", "#contacto"]) {
+    await expect(page.locator(`.nav__links a[href="${href}"]`)).toHaveCount(1);
+    await expect(page.locator(href)).toHaveCount(1);
+  }
+});

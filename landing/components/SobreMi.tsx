@@ -4,8 +4,8 @@ export function SobreMi() {
       <div className="wrap">
         <div className="about">
           <div className="about__bio" data-reveal>
-            <p className="eyebrow"><span className="n">02</span> Sobre mí</p>
-            <h2 className="s-title" id="about-title">Cómo trabajo</h2>
+            <p className="eyebrow"><span className="n">04</span> Sobre mí</p>
+            <h2 className="s-title" id="about-title">Quién está detrás.</h2>
             <p>Soy Alexis, <b>ingeniero telemático</b> en Cali. Telemática es telecomunicaciones más informática, y describe bien lo que hago: conectar tecnologías de distinta naturaleza en sistemas que funcionan de principio a fin, no piezas sueltas que brillan en una demo y se caen al tocar datos reales.</p>
             <p>Mi trabajo más sólido hasta hoy fue dirigir el desarrollo técnico de una plataforma legal-tech para una firma de abogados: siete microservicios operando como un solo producto, con un asistente de IA integrado al flujo real de captación. En paralelo construyo <b>harness</b> y <b>orus</b>, mi infraestructura para agentes, donde cuido que la evaluación sea reproducible: el mismo dataset da el mismo resultado cada vez.</p>
             <p>Vengo de Ingeniería Telemática en la Universidad Icesi, con el grado en trámite, y curso ahí mismo la Maestría en IA Aplicada. Antes fui monitor de matemáticas, cálculo y estadística por más de dos años; explicar cosas difíciles con calma se me volvió oficio, y se nota en cómo documento: ADRs, runbooks y commits que el que venga después pueda leer.</p>
