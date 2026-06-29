@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { NAV_H } from "../lib/motion/constants";
 
 test("hero-entry: el H1 usa la variante solo-transform (LCP-safe) y queda visible", async ({ page }) => {
   await page.goto("/");
@@ -106,3 +107,13 @@ test("nav: enlaces Proceso y FAQ presentes y apuntan a anclas existentes", async
     await expect(page.locator(href)).toHaveCount(1);
   }
 });
+
+for (const anchor of ["#proceso", "#faq"]) {
+  test(`ancla ${anchor} salta con el offset de la nav (Lenis)`, async ({ page }) => {
+    await page.goto(`/${anchor}`);
+    await expect.poll(
+      async () => page.locator(anchor).evaluate((e) => e.getBoundingClientRect().top),
+      { timeout: 3000 },
+    ).toBeGreaterThanOrEqual(NAV_H - 2);
+  });
+}

@@ -58,7 +58,7 @@ test("con JS: count-up llega al valor real y los reveals se vuelven visibles", a
   await page.waitForLoadState("networkidle");
   await page.locator("#trabajo").scrollIntoViewIfNeeded();
   // Espera robusta (auto-retrying): polls hasta que el count-up termine (~1.2s), sin sleep fijo
-  await expect(page.locator('[data-count]').first()).toHaveText(/546/, { timeout: 4000 });
+  await expect(page.locator('#trabajo [data-count]').first()).toHaveText(/546/, { timeout: 4000 });
   // Esperar a que IntersectionObserver active los reveals que ya están en viewport
   await page.waitForFunction(
     () => {
