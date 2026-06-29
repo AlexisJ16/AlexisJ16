@@ -76,7 +76,7 @@ export function DoblePrueba() {
                 <marker id="ahH" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                   <path d="M0 1 L9 5 L0 9 Z" fill="#5E9DFF"/>
                 </marker>
-                <path id="flowH" data-draw d="M190 56 L70 150 L310 150 Z"/>
+                <path id="flowH" d="M190 56 L70 150 L310 150 Z"/>
               </defs>
               <line className="a-edge a-edge--anim" data-draw x1="182" y1="66" x2="80" y2="142" markerEnd="url(#ahH)"/>
               <line className="a-edge a-edge--anim" data-draw x1="88" y1="150" x2="292" y2="150" markerEnd="url(#ahH)"/>

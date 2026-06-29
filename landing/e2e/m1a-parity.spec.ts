@@ -23,9 +23,12 @@ test("skip-link y ancla mueven el scroll con offset de la nav", async ({ page })
   await page.keyboard.press("Enter");
   await expect(page.locator("#inicio")).toBeInViewport();
   await page.goto("/#trabajo");
-  await page.waitForTimeout(900); // dar tiempo a Lenis
-  const top = await page.locator("#trabajo").evaluate((e) => e.getBoundingClientRect().top);
-  expect(top).toBeGreaterThanOrEqual(NAV_H - 2); // el ancla queda en/bajo la nav fija (offset de Lenis aplicado), no tapada
+  // Espera robusta (auto-retrying poll): sustituye el waitForTimeout(900) fijo — polls hasta que Lenis
+  // aplique el offset y el ancla quede en/bajo la nav fija, o falla con timeout si nunca ocurre.
+  await expect.poll(
+    async () => page.locator("#trabajo").evaluate((e) => e.getBoundingClientRect().top),
+    { timeout: 3000 },
+  ).toBeGreaterThanOrEqual(NAV_H - 2);
 });
 
 test("reduced-motion: sin SMIL corriendo y reveals visibles", async ({ browser }) => {
@@ -84,7 +87,8 @@ test("con JS: count-up llega al valor real y los reveals se vuelven visibles", a
 // añadir a e2e/m1a-parity.spec.ts
 test("about__side sticky sigue funcionando con Lenis", async ({ page }) => {
   await page.goto("/#sobre-mi");
-  await page.waitForTimeout(600);
+  // Espera robusta: asegurar que el elemento es visible antes de leer su computed style.
+  await page.locator(".about__side").waitFor({ state: "visible" });
   const pos = await page.locator(".about__side").evaluate((e) => getComputedStyle(e).position);
   expect(pos).toBe("sticky");
   // y no se solapa con el footer al hacer scroll largo (humo): la página no crashea
