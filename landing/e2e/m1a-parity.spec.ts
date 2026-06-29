@@ -49,6 +49,38 @@ test("reduced-motion: sin SMIL corriendo y reveals visibles", async ({ browser }
   await ctx.close();
 });
 
+test("con JS: count-up llega al valor real y los reveals se vuelven visibles", async ({ page }) => {
+  await page.goto("/");
+  // Esperar hidratación React antes de interactuar con el DOM
+  await page.waitForLoadState("networkidle");
+  await page.locator("#trabajo").scrollIntoViewIfNeeded();
+  // Espera robusta (auto-retrying): polls hasta que el count-up termine (~1.2s), sin sleep fijo
+  await expect(page.locator('[data-count]').first()).toHaveText(/546/, { timeout: 4000 });
+  // Esperar a que IntersectionObserver active los reveals que ya están en viewport
+  await page.waitForFunction(
+    () => {
+      const h = window.innerHeight;
+      const inView = [...document.querySelectorAll("[data-reveal]")].filter((e) => {
+        const r = e.getBoundingClientRect();
+        return r.top < h * 0.88 && r.bottom > 0;
+      });
+      return inView.length === 0 || inView.every((e) => e.classList.contains("is-visible"));
+    },
+    null,
+    { timeout: 4000 }
+  );
+  // Ningún reveal actualmente en viewport debe estar bloqueado (is-visible ausente + opacity:0)
+  const stuck = await page.locator("[data-reveal]").evaluateAll((els) => {
+    const h = window.innerHeight;
+    return els.filter((e) => {
+      const r = e.getBoundingClientRect();
+      const inView = r.top < h * 0.88 && r.bottom > 0;
+      return inView && !e.classList.contains("is-visible") && getComputedStyle(e).opacity === "0";
+    }).length;
+  });
+  expect(stuck).toBe(0);
+});
+
 // añadir a e2e/m1a-parity.spec.ts
 test("about__side sticky sigue funcionando con Lenis", async ({ page }) => {
   await page.goto("/#sobre-mi");
